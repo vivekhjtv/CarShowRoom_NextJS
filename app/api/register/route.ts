@@ -3,6 +3,7 @@ import User from '@/models/Register';
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 
+
 connectDB();
 // get the user information.
 export async function GET (request: NextRequest){
@@ -34,7 +35,7 @@ export async function POST(request: NextRequest) {
     }
     
     
-    const hashedPassword = bcrypt.hashSync(password, parseInt(process.env.BCRYPT_SALT));
+    const hashedPassword = bcrypt.hashSync(password, parseInt(process.env.BCRYPT_SALT!));
     
     const user = new User({
       username,

@@ -5,7 +5,7 @@ interface IParams {
     Id: string;
   }
 // get single user
-export async function GET(request, { params }: { params: IParams }) {
+export async function GET(request:any, { params }: { params: IParams }) {
   const { Id } = params;
   try {
     const task = await User.findById(Id);
@@ -16,7 +16,7 @@ export async function GET(request, { params }: { params: IParams }) {
   }
 }
 
-export async function DELETE(request, { params }: { params: IParams }) {
+export async function DELETE(request:any, { params }: { params: IParams }) {
   try {
     const { Id } = params;
     await User.deleteOne({
@@ -28,7 +28,7 @@ export async function DELETE(request, { params }: { params: IParams }) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 } 
-export async function PUT(request, { params }: { params: IParams }) {
+export async function PUT(request:any, { params }: { params: IParams }) {
   const { Id } = params;
   console.log(Id)
   try {

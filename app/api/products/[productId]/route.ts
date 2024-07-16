@@ -7,7 +7,7 @@ interface IParams {
 }
 
 // Get single product
-export async function GET(request, { params }: { params: IParams }) {
+export async function GET(request:any, { params }: { params: IParams }) {
   const { productId } = params;
   try {
     const product = await Products.findById(productId);
@@ -19,7 +19,7 @@ export async function GET(request, { params }: { params: IParams }) {
 }
 
 // Delete product
-export async function DELETE(request, { params }: { params: IParams }) {
+export async function DELETE(request: any, { params }: { params: IParams }) {
   try {
     const { productId } = params;
     await Products.deleteOne({
@@ -33,7 +33,7 @@ export async function DELETE(request, { params }: { params: IParams }) {
 }
 
 // Update product
-export async function PUT(request, { params }: { params: IParams }) {
+export async function PUT(request: any, { params }: { params: IParams }) {
   const { productId } = params;
   try {
     const updatedProductData = await request.json();

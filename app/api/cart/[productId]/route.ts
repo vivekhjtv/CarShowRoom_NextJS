@@ -4,8 +4,10 @@ import Products from '@/models/Products';
 import { NextRequest, NextResponse } from 'next/server';
 
 connectDB();
-
-export async function GET(request, { params }: { params: IParams }) {
+interface IParams {
+  productId: string;
+}
+export async function GET(request:any, { params }: { params: IParams }) {
   const { productId } = params;
   const productIds = productId.split(',');
   try {

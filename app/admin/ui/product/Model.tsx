@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export interface Product {
-  _id: number;
+  _id: string;
   make: string;
   model: string;
   year: string;
@@ -25,7 +25,7 @@ interface ModalProps {
   onAddItem: (newProduct: Product) => void;
   onEditItem: (updatedProduct: Product) => void;
   isEditMode: boolean;
-  initialData?: Product;
+  initialData?: Product | null;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -36,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({
   initialData,
 }) => {
   const [newItem, setNewItem] = useState<Product>({
-    _id: 0,
+    _id: '',
     make: '',
     model: '',
     year: '',
@@ -60,7 +60,6 @@ const Modal: React.FC<ModalProps> = ({
       setNewItem(initialData);
     }
   }, [isEditMode, initialData]);
-
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement

@@ -1,14 +1,25 @@
 'use client';
 import { useState, useMemo, useEffect } from 'react';
-import Modal from '../ui/product/Model';
+import Modal, { Product } from '../ui/product/Model';
 
 interface Car {
   _id: string;
   make: string;
   model: string;
   description: string;
-  price: number;
+  price: string;
   fuelType: string;
+  year: string;
+  color: string;
+  mileage: string;
+  transmission: string;
+  engineSize: string;
+  horsepower: string;
+  torque: string;
+  drivetrain: string;
+  doors: string;
+  seats: string;
+  images: string[];
 }
 
 export default function Page() {
@@ -19,7 +30,9 @@ export default function Page() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [currentCar, setCurrentCar] = useState<Car | null>(null);
+  // const [currentCar, setCurrentCar] = useState<Car | null>(null);
+  const [currentCar, setCurrentCar] = useState<Product | undefined>(undefined);
+
   const totalPage = Math.ceil(carList.length / rowsLimit);
 
   const rowsToShow = useMemo(() => {
@@ -60,7 +73,7 @@ export default function Page() {
 
   const openModal = () => {
     setIsEditMode(false);
-    setCurrentCar(null);
+    setCurrentCar(undefined);
     setIsModalOpen(true);
   };
 
@@ -68,7 +81,7 @@ export default function Page() {
     setIsModalOpen(false);
   };
 
-  const handleAddItem = (newProduct: Car) => {
+  const handleAddItem = (newProduct: Product) => {
     const newItem: Car = {
       _id: newProduct._id,
       make: newProduct.make,
@@ -76,15 +89,24 @@ export default function Page() {
       description: newProduct.description,
       price: newProduct.price,
       fuelType: newProduct.fuelType,
+      year: newProduct.year || 'Unknown', // Provide a default value or handle as needed
+      color: newProduct.color || 'Unknown', // Provide a default value or handle as needed
+      mileage: newProduct.mileage || '0', // Provide a default value or handle as needed
+      transmission: newProduct.transmission || 'Unknown', // Provide a default value or handle as needed
+      engineSize: newProduct.engineSize || 'Unknown', // Provide a default value or handle as needed
+      horsepower: newProduct.horsepower || 'Unknown', // Provide a default value or handle as needed
+      torque: newProduct.torque || 'Unknown', // Provide a default value or handle as needed
+      drivetrain: newProduct.drivetrain || 'Unknown', // Provide a default value or handle as needed
+      doors: newProduct.doors || 'Unknown', // Provide a default value or handle as needed
+      seats: newProduct.seats || 'Unknown', // Provide a default value or handle as needed
+      images: newProduct.images || [], // Provide a default value or handle as needed
     };
-    setCarList((prevList) => [
-      ...prevList,
-      { ...newItem, id: prevList.length + 1 },
-    ]);
+
+    setCarList((prevList) => [...prevList, newItem]);
     setIsModalOpen(false);
   };
 
-  const handleEditItem = (editedProduct: Car) => {
+  const handleEditItem = (editedProduct: Product) => {
     const updatedCarList = carList.map((car) =>
       car._id === editedProduct._id ? editedProduct : car
     );
@@ -268,7 +290,10 @@ export default function Page() {
                 }`}
                 onClick={previousPage}
               >
-                <img src="https://www.tailwindtap.com/assets/travelagency-admin/leftarrow.svg" />
+                <img
+                  src="https://www.tailwindtap.com/assets/travelagency-admin/leftarrow.svg"
+                  alt="left-side-arrow"
+                />
               </li>
               {Array.from({ length: totalPage }, (_, index) => (
                 <li
@@ -291,7 +316,10 @@ export default function Page() {
                 }`}
                 onClick={nextPage}
               >
-                <img src="https://www.tailwindtap.com/assets/travelagency-admin/rightarrow.svg" />
+                <img
+                  src="https://www.tailwindtap.com/assets/travelagency-admin/rightarrow.svg"
+                  alt="right-side-arrow"
+                />
               </li>
             </ul>
           </div>

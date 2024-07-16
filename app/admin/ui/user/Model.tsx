@@ -46,10 +46,12 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   const handleAdd = () => {
-    const updatedUserData = { ...newUser };
+    let updatedUserData = { ...newUser };
 
+    // Conditionally exclude password field if it's empty when editing
     if (user && newUser.password === '') {
-      delete updatedUserData.password; // Exclude password field if it's empty when editing
+      const { password, ...rest } = updatedUserData;
+      updatedUserData = rest;
     }
 
     if (user) {

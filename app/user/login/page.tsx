@@ -46,7 +46,7 @@ const LoginForm = () => {
           }
 
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           // Store user data in localStorage
           localStorage.setItem('user', JSON.stringify(data.user));
 

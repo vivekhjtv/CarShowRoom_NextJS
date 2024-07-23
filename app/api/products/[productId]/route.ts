@@ -1,7 +1,7 @@
 // api/products/{productId}
 import { NextResponse } from "next/server";
 import Products from '@/models/Products';
-
+// import cors from 'cors';
 interface IParams {
   productId: string;
 }

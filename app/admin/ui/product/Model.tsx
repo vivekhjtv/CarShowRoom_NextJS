@@ -89,7 +89,7 @@ const Modal: React.FC<ModalProps> = ({
 
     if (!isEditMode) {
       // For adding new product
-      fetch('http://localhost:3000/api/products', {
+      fetch('/api/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const Modal: React.FC<ModalProps> = ({
         });
     } else {
       // For editing existing product
-      fetch(`http://localhost:3000/api/products/${updatedProductData._id}`, {
+      fetch(`/api/products/${updatedProductData._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

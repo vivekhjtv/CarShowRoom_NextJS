@@ -1,10 +1,5 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-
-// };
-
-// export default nextConfig;
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   async rewrites() {
     return [
       {
@@ -14,3 +9,15 @@ module.exports = {
     ];
   },
 };
+
+export default nextConfig;
+// module.exports = {
+//   async rewrites() {
+//     return [
+//       {
+//         source: '/api/',
+//         destination: 'https://car-show-room-umber.vercel.app/',
+//       },
+//     ];
+//   },
+// };

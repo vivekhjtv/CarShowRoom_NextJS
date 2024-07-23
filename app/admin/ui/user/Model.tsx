@@ -54,7 +54,7 @@ const Modal: React.FC<ModalProps> = ({
     }
 
     if (user) {
-      fetch(`http://localhost:3000/api/register/${user._id}`, {
+      fetch(`/api/register/${user._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({
           console.error('Error editing user:', error);
         });
     } else {
-      fetch('http://localhost:3000/api/register', {
+      fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

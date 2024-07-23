@@ -2,9 +2,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, FormEvent, useEffect } from 'react';
-import { z } from 'zod';
 import { loginSchema } from '../../../schemas/validation';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 import { useUserContext } from '@/context/userContext';
 
 const LoginForm = () => {
@@ -35,8 +34,9 @@ const LoginForm = () => {
             },
             body: JSON.stringify(user),
           });
-
-          if (response.status === 409) {
+          console.log(response);
+          if (response.status == 409) {
+            console.log('409 conflict - user already exists');
             router.push('/user/products');
             return;
           }
@@ -46,8 +46,8 @@ const LoginForm = () => {
           }
 
           const data = await response.json();
-          // console.log(data);
-          // Store user data in localStorage
+          console.log(data);
+
           localStorage.setItem('user', JSON.stringify(data.user));
 
           // Store user data in a cookie
@@ -60,7 +60,7 @@ const LoginForm = () => {
 
           setUser(data.user);
           router.push('/user/products');
-          console.log('User saved to database');
+          console.log('User saved to database and redirected');
         } catch (error) {
           console.error('Error saving user:', error);
         }
@@ -68,7 +68,8 @@ const LoginForm = () => {
 
       saveUserToDB();
     }
-  }, [nextAuthUser]);
+  }, [nextAuthUser, router, setUser]);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -112,7 +113,7 @@ const LoginForm = () => {
       document.cookie = `user=${encodedUserData}; path=/; max-age=3600`; // expires in 1 hour
 
       router.push('/user/products');
-      console.log('Login successful');
+      console.log('Login successful and redirected');
     } catch (error: any) {
       setError(error.message);
       console.error('Login failed:', error);
@@ -204,4 +205,5 @@ const LoginForm = () => {
     </div>
   );
 };
+
 export default LoginForm;

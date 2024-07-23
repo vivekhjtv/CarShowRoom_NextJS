@@ -8,7 +8,6 @@ function Header() {
   const { user, setUser } = useUserContext();
   const { cartProduct, wishlist } = useCartContext();
   const router = useRouter();
-  console.log(user);
 
   const logout = async () => {
     try {

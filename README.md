@@ -77,8 +77,6 @@ Check out the live demo of our project on Vercel: [Car Showroom Live](https://ca
 
 ## Participation
 
-## Tech Stack
-
 •⁠ ⁠Vivek - Car Management(Admin), Manual Login
 
 •⁠ Gaurav - User Management(Admin), Place order
@@ -86,6 +84,8 @@ Check out the live demo of our project on Vercel: [Car Showroom Live](https://ca
 •⁠ ⁠Smit Shah - Next Auth login, Add to cart, Add to wishlist.
 
 •⁠ Jatin - Car listing, Car details page.
+
+## Tech Stack
 
 ### ⁠ ⁠*Frontend:*
 
@@ -117,6 +117,7 @@ To get a local copy up and running, follow these steps:
 ```sh
 git clone https://github.com/vivekhjtv/CarShowRoom_NextJS
 ```
+
 ### Admin credential
 
 - email : test@gmail.com

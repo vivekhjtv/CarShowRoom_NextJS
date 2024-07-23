@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Car Showroom
+
+Welcome to the Car Showroom project! This is a full-featured web application built with Next.js, TypeScript, Tailwind CSS, and MongoDB. It includes both user and admin panels to provide a seamless car booking experience.
+
+## Team ThunderDevs
+
+•⁠ ⁠*[Vivek Jethva](https://github.com/vivekhjtv)*
+
+•⁠ ⁠*[Gaurav Hariyani](https://github.com/RagnarGV)*
+
+•⁠ ⁠*[Smit Shah](https://github.com/SmitShah2001)*
+
+•⁠ ⁠*[Jatin Kumar](https://github.com/Jkumar096)*
+
+## Live Demo
+
+Check out the live demo of our project on Vercel: [Car Showroom Live](https://car-show-room-umber.vercel.app/)
+
+## Features
+
+### User Panel
+
+### ⁠*Authentication:*
+
+- User registration and login.
+- Google Login with NextAuth.
+
+![Authentication Screenshot](/public/images/login.png)
+
+### ⁠*Car Listing Page:*
+
+- View all available cars.
+
+![Car Listing Page Screenshot](/public/images/cars.png)
+
+### ⁠*Car Details Page:*
+
+- Detailed view of specific car information.
+
+![Car Details Page Screenshot](/public/images/cardetails.png)
+
+### ⁠ ⁠*Cart:*
+
+- Add cars to the cart.
+- View and update car quantities.
+- Remove cars from the cart.
+- Review order summary and proceed with checkout.
+
+![Cart Screenshot](/public/images/addtocart.png)
+
+### ⁠ ⁠*Wishlist:*
+
+- Add cars to the wishlist for future reference.
+
+![Wishlist Screenshot](/public/images/wishlist.png)
+
+### ⁠*Order Confirmation:*
+
+- View confirmation details after placing an order.
+
+![Order Confirmation Screenshot](/public/images/bookorder.png)
+
+### Admin Panel
+
+•⁠ ⁠*User Management:*
+
+- Implement CRUD functionality for users.
+- Change user roles.
+
+![User Management Screenshot](/public/images/userlisting.png)
+
+### ⁠ ⁠*Car Management:*
+
+- Implement CRUD functionality for cars.
+
+![Car Management Screenshot](/public/images/carlisting.png)
+
+## Tech Stack
+
+### ⁠ ⁠*Frontend:*
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+### ⁠ ⁠*Backend:*
+
+- [MongoDB](https://www.mongodb.com/)
+- [NextAuth](https://next-auth.js.org/)
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+•⁠ ⁠Node.js
+
+•⁠ ⁠npm or yarn
+
+•⁠ ⁠MongoDB
+
+### Installation
+
+1.⁠ ⁠Clone the repository:
+
+```sh
+git clone https://github.com/vivekhjtv/CarShowRoom_NextJS
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
